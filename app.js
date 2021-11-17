@@ -23,7 +23,7 @@ app.use('/devices', require('./controllers/devices'));
 app.use('/users', require('./controllers/users'));
 app.use('/weather', require('./controllers/weather'));
 
-mongoose.connect('mongodb://localhost:27017/nodeAppp').catch(error => { handleError(error); console.log(error); });
+mongoose.connect('mongodb+srv://acdb2021:acdb2021@cluster0.eygdd.mongodb.net/test').catch(error => { handleError(error); console.log(error); });
 
 app.get('/', (req, res) => {
   res.send("salom");
