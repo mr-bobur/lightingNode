@@ -29,7 +29,7 @@ mongoose.connect('mongodb+srv://acdb2021:acdb2021@cluster0.eygdd.mongodb.net/nod
 app.get('/', (req, res) => {
   res.sendFile('web/login.html', {root: __dirname});
 });
-app.get('/index', (req, res) => {
+app.post('/index', (req, res) => {
   res.sendFile('web/main.html', {root: __dirname});
 });
 
