@@ -24,14 +24,13 @@ app.use('/weather', require('./controllers/weather'));
 mongoose.connect('mongodb+srv://acdb2021:acdb2021@cluster0.eygdd.mongodb.net/nodeAppp').catch(error => { handleError(error); console.log(error); });
 
 app.get('/', (req, res) => {
-<<<<<<< HEAD
-  res.sendFile('web/index.html', { root: __dirname });
-=======
-  res.sendFile('web/login.html', {root: __dirname});
+  res.sendFile('web/index.html', {root: __dirname});
 });
-app.post('/index', (req, res) => {
-  res.sendFile('web/main.html', {root: __dirname});
->>>>>>> 0c909e2a80529480dffc4a3a4a389d97d1d5d4c1
+app.post('/settings', (req, res) => {
+  res.sendFile('web/settings.html', {root: __dirname});
+});
+app.get('/devices', (req, res) => {
+  res.sendFile('web/devices.html', {root: __dirname});
 });
 
 app.listen(3000);
@@ -40,9 +39,11 @@ setInterval(async function () {
   try {
     let device = await Device.findById("619386f56eab02bab508b09d");
     console.log(device.temp);
+    res.send(device);
   } catch (err) {
+    res.status(404).json({ success: false, data: err });
   }
-}, 500);
+}, 5000);
 
 
 // setInterval(async function () {
