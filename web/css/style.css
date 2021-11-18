@@ -8466,6 +8466,9 @@ h4.asd label {
 	}
 }
 /*--//responsive-design---*/
-
+.add-btn {
+  width: 100px;
+  margin: auto;
+}
 
 
