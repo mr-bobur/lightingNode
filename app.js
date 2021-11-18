@@ -32,6 +32,9 @@ app.post('/settings', (req, res) => {
 app.get('/device', (req, res) => {
   res.sendFile('web/devices.html', {root: __dirname});
 });
+app.get('/add-device', (req, res) => {
+  res.sendFile('web/add.html', {root: __dirname});
+});
 
 app.listen(3000);
 
