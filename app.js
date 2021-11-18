@@ -24,7 +24,14 @@ app.use('/weather', require('./controllers/weather'));
 mongoose.connect('mongodb+srv://acdb2021:acdb2021@cluster0.eygdd.mongodb.net/nodeAppp').catch(error => { handleError(error); console.log(error); });
 
 app.get('/', (req, res) => {
+<<<<<<< HEAD
   res.sendFile('web/index.html', { root: __dirname });
+=======
+  res.sendFile('web/login.html', {root: __dirname});
+});
+app.post('/index', (req, res) => {
+  res.sendFile('web/main.html', {root: __dirname});
+>>>>>>> 0c909e2a80529480dffc4a3a4a389d97d1d5d4c1
 });
 
 app.listen(3000);
