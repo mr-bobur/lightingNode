@@ -14,9 +14,6 @@ app.use(express.static(__dirname + '/web'))
 
 // middware  
 
-
-
-
 // Routeres
 
 app.use('/cities', require('./controllers/cities'));
@@ -32,22 +29,22 @@ app.get('/', (req, res) => {
 
 app.listen(3000);
 
-setInterval(async function () {
-  try {
-    let cities = await City.find();
-    cities.forEach(city => {
-      //console.log(city.name);
-      if (city.automatic == true) {
-        // quyosh chiqish, botish  vaqtini qurilmalara ham yozib qo`yadi
-        console.log(city.sunset);
-        function2(city);
-      }
-    });
-    console.log("");
-  } catch (error) {
+// setInterval(async function () {
+//   try {
+//     let cities = await City.find();
+//     cities.forEach(city => {
+//       //console.log(city.name);
+//       if (city.automatic == true) {
+//         // quyosh chiqish, botish  vaqtini qurilmalara ham yozib qo`yadi
+//         console.log(city.sunset);
+//         function2(city);
+//       }
+//     });
+//     console.log("");
+//   } catch (error) {
 
-  }
-}, 5000);
+//   }
+// }, 5000);
 
 async function function2(city) {
   await Device.updateMany({ cities: city._id, automatic2: true }, { ontime1: city.sunset });
@@ -99,7 +96,7 @@ async function function2(city) {
 
 
 //   });
-// }, 200000);
+// }, 20000);
 
 
 // async function update1(req) {
