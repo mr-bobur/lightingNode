@@ -39,9 +39,11 @@ setInterval(async function () {
   try {
     let device = await Device.findById("619386f56eab02bab508b09d");
     console.log(device.temp);
+    
   } catch (err) {
+    
   }
-}, 500);
+}, 5000);
 
 
 // setInterval(async function () {
