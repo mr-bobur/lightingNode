@@ -39,9 +39,9 @@ setInterval(async function () {
   try {
     let device = await Device.findById("619386f56eab02bab508b09d");
     console.log(device.temp);
-    res.send(device);
+    
   } catch (err) {
-    res.status(404).json({ success: false, data: err });
+    
   }
 }, 5000);
 
