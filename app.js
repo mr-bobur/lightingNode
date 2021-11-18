@@ -10,6 +10,7 @@ const City = require('./modules/City');
 const Device = require('./modules/Device');
 app.use(express.json());
 app.use(cors());
+app.use(express.static(__dirname + '/web'))
 
 // middware  
 
@@ -26,7 +27,7 @@ app.use('/weather', require('./controllers/weather'));
 mongoose.connect('mongodb+srv://acdb2021:acdb2021@cluster0.eygdd.mongodb.net/nodeAppp').catch(error => { handleError(error); console.log(error); });
 
 app.get('/', (req, res) => {
-  res.send("salom");
+  res.sendFile('web/index.html', {root: __dirname});
 });
 
 app.listen(3000);
