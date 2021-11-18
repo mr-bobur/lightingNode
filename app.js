@@ -30,7 +30,7 @@ app.get('/', (req, res) => {
   res.sendFile('web/login.html', {root: __dirname});
 });
 app.get('/index', (req, res) => {
-  res.sendFile('web/index.html', {root: __dirname});
+  res.sendFile('web/main.html', {root: __dirname});
 });
 
 app.listen(3000);
