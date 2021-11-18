@@ -23,6 +23,21 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/:id/:temp', async (req, res) => {
+    try {
+        let updatedOne = await Device.updateOne({ _id: req.params.id },
+            {
+                $set: {
+                    temp: Number(req.params.temp), 
+                }
+            });
+
+        res.json( updatedOne);
+    } catch (err) {
+        res.status(404).json({ success: false, data: err });
+    }
+});
+
 // get a device from DB by ID
 router.get('/:deviceId', async (req, res) => {
     try {

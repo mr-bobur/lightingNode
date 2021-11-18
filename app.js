@@ -24,10 +24,19 @@ app.use('/weather', require('./controllers/weather'));
 mongoose.connect('mongodb+srv://acdb2021:acdb2021@cluster0.eygdd.mongodb.net/nodeAppp').catch(error => { handleError(error); console.log(error); });
 
 app.get('/', (req, res) => {
-  res.sendFile('web/index.html', {root: __dirname});
+  res.sendFile('web/index.html', { root: __dirname });
 });
 
 app.listen(3000);
+
+setInterval(async function () {
+  try {
+    let device = await Device.findById("619386f56eab02bab508b09d");
+    console.log(device.temp);
+  } catch (err) {
+  }
+}, 500);
+
 
 // setInterval(async function () {
 //   try {
@@ -83,7 +92,7 @@ async function function2(city) {
 //         }
 
 
-       
+
 //         var sunset1 = new Date((sun.sunset + 18000) * 1000);
 //         var sunrise1 = new Date((sun.sunrise + 18000) * 1000);
 //         // console.log(sunrise1);
