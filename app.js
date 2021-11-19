@@ -26,7 +26,7 @@ mongoose.connect('mongodb+srv://acdb2021:acdb2021@cluster0.eygdd.mongodb.net/nod
 app.get('/', (req, res) => {
   res.sendFile('web/index.html', {root: __dirname});
 });
-app.post('/settings', (req, res) => {
+app.get('/settings', (req, res) => {
   res.sendFile('web/settings.html', {root: __dirname});
 });
 app.get('/device', (req, res) => {
