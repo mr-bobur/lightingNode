@@ -1,7 +1,5 @@
 const express = require('express');
-//var mosca = require('mosca');
 const app = express();
-
 
 const mongoose = require('mongoose');
 const bodyparse = require('body-parser');
@@ -11,10 +9,6 @@ const Device = require('./modules/Device');
 app.use(express.json());
 app.use(cors());
 app.use(express.static(__dirname + '/web'))
-
-// middware  
-
-// Routeres
 
 app.use('/cities', require('./controllers/cities'));
 app.use('/devices', require('./controllers/devices'));
@@ -118,43 +112,3 @@ async function function2(city) {
 //   });
 // }, 20000);
 
-
-// async function update1(req) {
-//   try {
-//     City.updateOne({ _id: req.id },
-//       {
-//         $set: {
-//           sunrise: req.sunrise,
-//           sunset: req.sunset
-//         }
-//       }).exec();
-//     //console.log("bitdi\n");
-//   } catch (error) {
-//     console.log("bitmadi!!!\n");
-//   }
-
-// }
-
-// for MOSCA server
-// var ascoltatore = {
-//   type: 'mongo',
-//   url: 'mongodb://localhost:27017/mqtt',
-//   pubsubCollection: 'ascoltatori',
-//   mongo: {}
-// };
-// var settings = {
-//   port: 1883,
-//   backend: ascoltatore
-// };
-// var server = new mosca.Server(settings);
-// server.on('clientConnected', function(client) {
-//   console.log('client connected', client.id);
-// });
-// server.on('published', function(packet, client) {
-// console.log('Published', packet.payload);
-// });
-// server.on('ready', setup);
-// function setup() {
-// console.log('Mosca server is up and running');
-// }
-// console.log('client connected');

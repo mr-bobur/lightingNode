@@ -38,6 +38,22 @@ router.get('/:id/:temp', async (req, res) => {
     }
 });
 
+router.get('/:id/:switch4', async (req, res) => {
+    try {
+        let updatedOne = await Device.updateOne({ _id: req.params.id },
+            {
+                $set: {
+                    switch4: Number(req.params.switch4), 
+                }
+            });
+
+        res.json( updatedOne);
+    } catch (err) {
+        res.status(404).json({ success: false, data: err });
+    }
+});
+
+
 // get a device from DB by ID
 router.get('/:deviceId', async (req, res) => {
     try {
@@ -100,12 +116,10 @@ router.patch('/:deviceId', async (req, res) => {
                     ontime3: req.body.ontime3,
                     offtime3: req.body.offtime3,
                     temp: req.body.temp,
-                    status: req.body.status
-                    
+                    status: req.body.status 
                 }
-            });
-
-        const device = await Device.findById(req.params.deviceId);
+            }); 
+        let device = await Device.findById(req.params.deviceId);
 
         res.json({ updatedOne, device });
     } catch (err) {
